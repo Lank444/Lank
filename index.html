@@ -318,29 +318,6 @@
   }
   .src-box b{color:var(--text);}
 
-  /* score panel */
-  .score-panel{
-    background:var(--s1);border:1px solid var(--border);border-radius:16px;
-    overflow:hidden;margin-bottom:2rem;
-  }
-  .sp-head{
-    background:rgba(240,192,64,.08);padding:1rem 1.4rem;
-    font-family:'DM Mono',monospace;font-size:.68rem;
-    text-transform:uppercase;letter-spacing:.12em;color:var(--gold);
-    border-bottom:1px solid var(--border);
-  }
-  .sp-row{
-    display:flex;align-items:center;padding:.85rem 1.4rem;
-    border-bottom:1px solid var(--border);font-size:.88rem;
-    transition:background .15s;
-  }
-  .sp-row:last-child{border-bottom:none;}
-  .sp-row:hover{background:var(--s2);}
-  .sp-name{flex:1;color:var(--text);}
-  .sp-skor{font-family:'DM Mono',monospace;font-weight:500;color:var(--gold);}
-  .sp-bar{width:80px;height:4px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden;margin:0 1rem;}
-  .sp-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:99px;}
-
   /* footer */
   footer{
     text-align:center;padding:1.5rem;
@@ -587,18 +564,6 @@
     </div>
 
     <div class="divider"></div>
-
-    <!-- Score rubric -->
-    <div class="sec-tag">Rubrik Penilaian</div>
-    <div class="score-panel">
-      <div class="sp-head">Aspek Penilaian Tugas Kokurikuler</div>
-      <div class="sp-row"><span class="sp-name">Kelengkapan data</span><div class="sp-bar"><div class="sp-fill" style="width:100%"></div></div><span class="sp-skor">20 pts</span></div>
-      <div class="sp-row"><span class="sp-name">Perhitungan statistika</span><div class="sp-bar"><div class="sp-fill" style="width:100%"></div></div><span class="sp-skor">20 pts</span></div>
-      <div class="sp-row"><span class="sp-name">Diagram</span><div class="sp-bar"><div class="sp-fill" style="width:100%"></div></div><span class="sp-skor">20 pts</span></div>
-      <div class="sp-row"><span class="sp-name">Desain website</span><div class="sp-bar"><div class="sp-fill" style="width:100%"></div></div><span class="sp-skor">20 pts</span></div>
-      <div class="sp-row"><span class="sp-name">Kesimpulan</span><div class="sp-bar"><div class="sp-fill" style="width:100%"></div></div><span class="sp-skor">20 pts</span></div>
-      <div class="sp-row" style="background:rgba(240,192,64,.05)"><span class="sp-name"><b>Total</b></span><div class="sp-bar"></div><span class="sp-skor"><b>100 pts</b></span></div>
-    </div>
 
     <div class="src-box">
       <b>Sumber Data:</b> Data diambil dari rangkuman artikel pendidikan tentang penggunaan gadget pada remaja dari internet (2023–2024). Data berjumlah 20 sampel dengan rentang nilai 2–7 jam per hari.
