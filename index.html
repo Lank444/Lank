@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kopi Nusantara — Menu</title>
+  <link rel="stylesheet" href="style-menu.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,300&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-noise"></div>
+    <div class="hero-content">
+      <p class="hero-sub">Selamat Datang di</p>
+      <h1 class="hero-title">Kopi<br/><em>Nusantara</em></h1>
+      <p class="hero-desc">Pilih menu favoritmu & nikmati setiap tegukan</p>
+    </div>
+    <div class="table-selector">
+      <label>Nomor Meja</label>
+      <div class="table-btns" id="tableButtons"></div>
+    </div>
+  </header>
+
+  <!-- CART STICKY -->
+  <div class="cart-bar" id="cartBar">
+    <div class="cart-info">
+      <span class="cart-icon">🛒</span>
+      <span id="cartCount">0 item</span>
+    </div>
+    <span id="cartTotal">Rp 0</span>
+    <button class="cart-btn" onclick="openCart()">Lihat Pesanan</button>
+  </div>
+
+  <!-- CATEGORY NAV -->
+  <nav class="cat-nav">
+    <button class="cat-btn active" onclick="filterCat('all', this)">Semua</button>
+    <button class="cat-btn" onclick="filterCat('coffee', this)">☕ Coffee</button>
+    <button class="cat-btn" onclick="filterCat('signature', this)">🧊 Signature</button>
+    <button class="cat-btn" onclick="filterCat('noncoffee', this)">🍵 Non-Coffee</button>
+    <button class="cat-btn" onclick="filterCat('refreshing', this)">🥤 Refreshing</button>
+    <button class="cat-btn" onclick="filterCat('milk', this)">🥛 Milk</button>
+    <button class="cat-btn" onclick="filterCat('food', this)">🍝 Food</button>
+    <button class="cat-btn" onclick="filterCat('snack', this)">🍟 Snacks</button>
+    <button class="cat-btn" onclick="filterCat('dessert', this)">🍰 Dessert</button>
+    <button class="cat-btn" onclick="filterCat('sweet', this)">🍨 Sweet</button>
+  </nav>
+
+  <!-- MENU GRID -->
+  <main class="menu-section">
+    <div class="menu-grid" id="menuGrid"></div>
+  </main>
+
+  <!-- CART MODAL -->
+  <div class="modal-overlay" id="cartModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Pesanan Anda</h2>
+        <button class="modal-close" onclick="closeCart()">✕</button>
+      </div>
+      <div class="modal-table-info" id="modalTableInfo">⚠️ Belum memilih meja</div>
+      <div class="modal-items" id="modalItems"></div>
+      <div class="modal-footer">
+        <div class="modal-total">
+          <span>Total</span>
+          <strong id="modalTotal">Rp 0</strong>
+        </div>
+        <textarea id="orderNote" placeholder="Catatan pesanan (opsional)..." rows="2"></textarea>
+        <button class="order-btn" id="submitBtn" onclick="submitOrder()">📤 Kirim ke Kasir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS TOAST -->
+  <div class="toast" id="toast">✅ Pesanan berhasil dikirim ke kasir!</div>
+
+  <!-- Firebase SDK -->
+  <script type="module" src="menu.js"></script>
+</body>
+</html>
