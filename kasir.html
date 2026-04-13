@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kopi Nusantara — Kasir</title>
+  <link rel="stylesheet" href="style-kasir.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="kasir-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-mark">KN</div>
+        <div>
+          <h1 class="sidebar-title">Kopi Nusantara</h1>
+          <p class="sidebar-sub">Sistem Kasir</p>
+        </div>
+      </div>
+
+      <div class="stat-cards">
+        <div class="stat-card">
+          <span class="stat-num" id="statAntrian">0</span>
+          <span class="stat-label">Antrian</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="statSelesai">0</span>
+          <span class="stat-label">Selesai</span>
+        </div>
+        <div class="stat-card accent">
+          <span class="stat-num" id="statPendapatan">0</span>
+          <span class="stat-label">Pendapatan (Rp)</span>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <p class="filter-label">Filter Status</p>
+        <button class="filter-btn active" onclick="filterOrders('all', this)">Semua</button>
+        <button class="filter-btn" onclick="filterOrders('baru', this)">🟡 Baru</button>
+        <button class="filter-btn" onclick="filterOrders('proses', this)">🔵 Diproses</button>
+        <button class="filter-btn" onclick="filterOrders('selesai', this)">🟢 Selesai</button>
+        <button class="filter-btn" onclick="filterOrders('batal', this)">🔴 Dibatal</button>
+      </div>
+
+      <button class="clear-btn" onclick="clearDone()">🗑 Hapus Selesai</button>
+
+      <div class="sidebar-footer">
+        <div class="live-dot"></div>
+        <span id="lastUpdate">Menunggu pesanan...</span>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+      <div class="main-header">
+        <h2 class="main-title">Daftar Pesanan</h2>
+        <div class="header-actions">
+          <span id="clockDisplay" class="clock"></span>
+          <button class="refresh-btn" onclick="loadOrders()">↻ Refresh</button>
+        </div>
+      </div>
+
+      <div class="orders-grid" id="ordersGrid">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">☕</div>
+          <p>Belum ada pesanan masuk</p>
+          <span>Pesanan dari pelanggan akan muncul di sini</span>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ORDER DETAIL MODAL -->
+  <div class="modal-overlay" id="detailModal">
+    <div class="modal-detail">
+      <div class="modal-header">
+        <h3 id="detailTitle">Detail Pesanan</h3>
+        <button onclick="closeDetail()" class="close-btn">✕</button>
+      </div>
+      <div id="detailBody"></div>
+      <div class="modal-actions" id="detailActions"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Firebase SDK -->
+  <script type="module" src="kasir.js"></script>
+</body>
+</html>
